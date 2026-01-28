@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Gamepad2, Cloud, Rss } from "lucide-react";
+import { ExternalLink, Github, Cloud, Rss } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import solarFixerImg from "@/assets/solarfixer-thumbnail.jpg";
+import fightingGameImg from "@/assets/fighting-game-thumbnail.jpg";
 
 const projects = [
   {
@@ -20,7 +21,7 @@ const projects = [
     title: "Web Fighting Game",
     subtitle: "Street Fighter Inspired",
     description: "JavaScript-based multiplayer fighting game with player controls, attack mechanics, and collision detection. Inspired by classic arcade fighters.",
-    icon: Gamepad2,
+    image: fightingGameImg,
     color: "primary",
     tags: ["JavaScript", "Game Dev", "Canvas API"],
     github: "#",
@@ -87,7 +88,7 @@ const ProjectsSection = () => {
               <div className="relative">
                 <div className="flex items-start justify-between mb-4">
                   {'image' in project && project.image ? (
-                    <div className="w-16 h-16 rounded-xl overflow-hidden border border-border/50 shadow-card">
+                    <div className="w-20 h-20 rounded-xl overflow-hidden border border-border/50 shadow-card">
                       <img 
                         src={project.image} 
                         alt={project.title} 

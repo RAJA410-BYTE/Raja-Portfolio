@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Cloud, Rss } from "lucide-react";
+import { ExternalLink, Github, Rss } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import solarFixerImg from "@/assets/solarfixer-thumbnail.jpg";
 import fightingGameImg from "@/assets/fighting-game-thumbnail.jpg";
+import cloudPointImg from "@/assets/cloudpoint-thumbnail.jpg";
 
 const projects = [
   {
@@ -31,7 +32,7 @@ const projects = [
     title: "Cloud Point",
     subtitle: "Weather Application",
     description: "API-based weather application with real-time data, location-specific updates, and map-based weather visualization.",
-    icon: Cloud,
+    image: cloudPointImg,
     color: "accent",
     tags: ["REST APIs", "Real-time Data", "Maps"],
     github: "#",

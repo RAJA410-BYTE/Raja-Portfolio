@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Sun, Gamepad2, Cloud, Rss } from "lucide-react";
+import { ExternalLink, Github, Gamepad2, Cloud, Rss } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import solarFixerImg from "@/assets/solarfixer-thumbnail.jpg";
 
 const projects = [
   {
     title: "SolarFixer",
     subtitle: "Drone Thermal Analysis Platform",
     description: "Web platform for uploading drone footage and thermal images of solar panels. Helps detect faulty or underperforming panels using thermal data for renewable energy maintenance.",
-    icon: Sun,
+    image: solarFixerImg,
     color: "accent",
     tags: ["Web Development", "File Uploads", "Data Visualization"],
     github: "#",
@@ -85,13 +86,23 @@ const ProjectsSection = () => {
 
               <div className="relative">
                 <div className="flex items-start justify-between mb-4">
-                  <div className={`p-3 rounded-xl ${
-                    project.color === 'primary' 
-                      ? 'bg-primary/10 text-primary' 
-                      : 'bg-accent/10 text-accent'
-                  }`}>
-                    <project.icon size={24} />
-                  </div>
+                  {'image' in project && project.image ? (
+                    <div className="w-12 h-12 rounded-xl overflow-hidden">
+                      <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className={`p-3 rounded-xl ${
+                      project.color === 'primary' 
+                        ? 'bg-primary/10 text-primary' 
+                        : 'bg-accent/10 text-accent'
+                    }`}>
+                      {'icon' in project && project.icon && <project.icon size={24} />}
+                    </div>
+                  )}
                   <div className="flex gap-2">
                     <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
                       <a href={project.github} target="_blank" rel="noopener noreferrer">

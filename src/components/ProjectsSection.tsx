@@ -87,7 +87,7 @@ const ProjectsSection = () => {
               <div className="relative">
                 <div className="flex items-start justify-between mb-4">
                   {'image' in project && project.image ? (
-                    <div className="w-12 h-12 rounded-xl overflow-hidden">
+                    <div className="w-16 h-16 rounded-xl overflow-hidden border border-border/50 shadow-card">
                       <img 
                         src={project.image} 
                         alt={project.title} 

@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Rss } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import solarFixerImg from "@/assets/solarfixer-thumbnail.jpg";
 import fightingGameImg from "@/assets/fighting-game-thumbnail.jpg";
 import cloudPointImg from "@/assets/cloudpoint-thumbnail.jpg";
+import ddFeedImg from "@/assets/ddfeed-thumbnail.jpg";
 
 const projects = [
   {
@@ -42,7 +43,7 @@ const projects = [
     title: "DD Feed",
     subtitle: "Responsive Feed Website",
     description: "Responsive feed-style website with dynamic content rendering and cross-browser support. Focus on performance and accessibility.",
-    icon: Rss,
+    image: ddFeedImg,
     color: "primary",
     tags: ["Responsive Design", "Dynamic Content", "CSS"],
     github: "#",
@@ -88,23 +89,13 @@ const ProjectsSection = () => {
 
               <div className="relative">
                 <div className="flex items-start justify-between mb-4">
-                  {'image' in project && project.image ? (
-                    <div className="w-20 h-20 rounded-xl overflow-hidden border border-border/50 shadow-card">
-                      <img 
-                        src={project.image} 
-                        alt={project.title} 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  ) : (
-                    <div className={`p-3 rounded-xl ${
-                      project.color === 'primary' 
-                        ? 'bg-primary/10 text-primary' 
-                        : 'bg-accent/10 text-accent'
-                    }`}>
-                      {'icon' in project && project.icon && <project.icon size={24} />}
-                    </div>
-                  )}
+                  <div className="w-20 h-20 rounded-xl overflow-hidden border border-border/50 shadow-card">
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <div className="flex gap-2">
                     <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
@@ -118,7 +109,6 @@ const ProjectsSection = () => {
                     </Button>
                   </div>
                 </div>
-
                 <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>

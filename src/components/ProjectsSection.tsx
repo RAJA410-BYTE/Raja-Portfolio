@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Rss } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import solarFixerImg from "@/assets/solarfixer-thumbnail.jpg";
 import fightingGameImg from "@/assets/fighting-game-thumbnail.jpg";
 import cloudPointImg from "@/assets/cloudpoint-thumbnail.jpg";
+import ddFeedImg from "@/assets/ddfeed-thumbnail.jpg";
 
 const projects = [
   {
@@ -42,7 +43,7 @@ const projects = [
     title: "DD Feed",
     subtitle: "Responsive Feed Website",
     description: "Responsive feed-style website with dynamic content rendering and cross-browser support. Focus on performance and accessibility.",
-    icon: Rss,
+    image: ddFeedImg,
     color: "primary",
     tags: ["Responsive Design", "Dynamic Content", "CSS"],
     github: "#",

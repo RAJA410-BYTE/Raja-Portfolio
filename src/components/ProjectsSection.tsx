@@ -109,20 +109,6 @@ const ProjectsSection = () => {
                     </Button>
                   </div>
                 </div>
-                  <div className="flex gap-2">
-                    <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github size={16} />
-                      </a>
-                    </Button>
-                    <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink size={16} />
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-
                 <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>

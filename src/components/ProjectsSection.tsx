@@ -14,7 +14,6 @@ const projects = [
     subtitle: "Drone Thermal Analysis Platform",
     description: "Web platform for uploading drone footage and thermal images of solar panels. Helps detect faulty or underperforming panels using thermal data for renewable energy maintenance.",
     image: solarFixerImg,
-    color: "accent",
     tags: ["Web Development", "File Uploads", "Data Visualization"],
     github: "#",
     demo: "#",
@@ -24,7 +23,6 @@ const projects = [
     subtitle: "Street Fighter Inspired",
     description: "JavaScript-based multiplayer fighting game with player controls, attack mechanics, and collision detection. Inspired by classic arcade fighters.",
     image: fightingGameImg,
-    color: "primary",
     tags: ["JavaScript", "Game Dev", "Canvas API"],
     github: "#",
     demo: "#",
@@ -34,7 +32,6 @@ const projects = [
     subtitle: "Weather Application",
     description: "API-based weather application with real-time data, location-specific updates, and map-based weather visualization.",
     image: cloudPointImg,
-    color: "accent",
     tags: ["REST APIs", "Real-time Data", "Maps"],
     github: "#",
     demo: "#",
@@ -44,7 +41,6 @@ const projects = [
     subtitle: "Responsive Feed Website",
     description: "Responsive feed-style website with dynamic content rendering and cross-browser support. Focus on performance and accessibility.",
     image: ddFeedImg,
-    color: "primary",
     tags: ["Responsive Design", "Dynamic Content", "CSS"],
     github: "#",
     demo: "#",
@@ -73,59 +69,81 @@ const ProjectsSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative p-6 md:p-8 rounded-2xl bg-gradient-card border border-border/50 card-hover overflow-hidden"
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              className="group relative"
             >
-              {/* Hover glow effect */}
-              <div className={`absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 ${
-                project.color === 'primary' ? 'bg-primary' : 'bg-accent'
-              }`} />
-
-              <div className="relative">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-20 h-20 rounded-xl overflow-hidden border border-border/50 shadow-card">
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover"
-                    />
+              <div className="relative rounded-2xl overflow-hidden bg-gradient-card border border-border/50 shadow-card transition-all duration-500 hover:shadow-elevated hover:-translate-y-2">
+                {/* Image Container - Large & Cinematic */}
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                  />
+                  {/* Hover overlay with glow */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                  
+                  {/* Hover glow effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    <div className="absolute inset-0 bg-primary/10 blur-2xl" />
                   </div>
-                  <div className="flex gap-2">
-                    <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
+
+                  {/* Action buttons - appear on hover */}
+                  <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                    <Button 
+                      variant="glass" 
+                      size="icon" 
+                      className="h-10 w-10 backdrop-blur-md bg-background/70 border-border/50 hover:bg-background/90" 
+                      asChild
+                    >
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github size={16} />
+                        <Github size={18} />
                       </a>
                     </Button>
-                    <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
+                    <Button 
+                      variant="glass" 
+                      size="icon" 
+                      className="h-10 w-10 backdrop-blur-md bg-background/70 border-border/50 hover:bg-background/90" 
+                      asChild
+                    >
                       <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink size={16} />
+                        <ExternalLink size={18} />
                       </a>
                     </Button>
                   </div>
                 </div>
-                <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4">{project.subtitle}</p>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                  {project.description}
-                </p>
 
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 rounded-full text-xs font-medium bg-muted/50 text-muted-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                {/* Content - Clean below image */}
+                <div className="p-6 lg:p-8">
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <h3 className="text-xl lg:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mt-1">{project.subtitle}</p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-muted-foreground text-sm lg:text-base leading-relaxed mb-5">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>

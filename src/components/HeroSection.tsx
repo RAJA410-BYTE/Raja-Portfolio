@@ -307,7 +307,7 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Profile Image with Robot Animation */}
+          {/* Profile Image */}
           <motion.div initial={{
           opacity: 0,
           scale: 0.8
@@ -319,33 +319,6 @@ const HeroSection = () => {
           delay: 0.4
         }} className="flex justify-center lg:justify-end order-1 lg:order-2">
             <div className="relative">
-              {/* Spline Robot 3D Animation - Behind Profile */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.7 }}
-                transition={{ duration: 1.5, delay: 0.8 }}
-                className="absolute -inset-20 lg:-inset-32 z-0 pointer-events-none"
-              >
-                <iframe 
-                  src="https://my.spline.design/r4xbot-lKKLWuw4z8uYoqSFMembkBGU/"
-                  frameBorder="0"
-                  className="w-full h-full"
-                  style={{ 
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%) scale(1.5)',
-                    minWidth: '400px',
-                    minHeight: '400px',
-                    filter: 'blur(0.5px)',
-                  }}
-                  loading="lazy"
-                  title="3D Robot Animation"
-                />
-                {/* Soft glow overlay for blending */}
-                <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background/80 pointer-events-none" />
-              </motion.div>
-
               {/* Animated rings */}
               <motion.div animate={{
               rotate: 360
@@ -353,7 +326,7 @@ const HeroSection = () => {
               duration: 20,
               repeat: Infinity,
               ease: "linear"
-            }} className="absolute inset-0 w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full z-10" style={{
+            }} className="absolute inset-0 w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full" style={{
               background: "conic-gradient(from 0deg, transparent, hsl(var(--primary) / 0.3), transparent)"
             }} />
               <motion.div animate={{
@@ -362,15 +335,15 @@ const HeroSection = () => {
               duration: 15,
               repeat: Infinity,
               ease: "linear"
-            }} className="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] rounded-full opacity-50 z-10" style={{
+            }} className="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] rounded-full opacity-50" style={{
               background: "conic-gradient(from 180deg, transparent, hsl(var(--accent) / 0.3), transparent)"
             }} />
               
               {/* Glow effect */}
-              <div className="absolute inset-4 bg-gradient-primary rounded-full blur-3xl opacity-20 animate-pulse z-10" />
+              <div className="absolute inset-4 bg-gradient-primary rounded-full blur-3xl opacity-20 animate-pulse" />
               
               {/* Image container */}
-              <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden p-2 z-20">
+              <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden p-2">
                 <div className="w-full h-full rounded-full overflow-hidden border-2 border-primary/30 shadow-glow">
                   <img src={profileImage} alt="Raja Prasad" className="w-full h-full object-cover" />
                 </div>
@@ -383,7 +356,7 @@ const HeroSection = () => {
               duration: 4,
               repeat: Infinity,
               ease: "easeInOut"
-            }} className="absolute -top-2 -right-2 px-4 py-2 glass rounded-xl shadow-card z-30">
+            }} className="absolute -top-2 -right-2 px-4 py-2 glass rounded-xl shadow-card">
                 <span className="text-sm font-mono font-semibold text-primary">CGPA 8.0</span>
               </motion.div>
 
@@ -393,7 +366,7 @@ const HeroSection = () => {
               duration: 5,
               repeat: Infinity,
               ease: "easeInOut"
-            }} className="absolute -bottom-2 -left-2 px-4 py-2 glass rounded-xl shadow-card z-30">
+            }} className="absolute -bottom-2 -left-2 px-4 py-2 glass rounded-xl shadow-card">
                 <span className="text-sm font-mono font-semibold text-accent">Full Stack Dev</span>
               </motion.div>
 
@@ -403,7 +376,7 @@ const HeroSection = () => {
               duration: 6,
               repeat: Infinity,
               ease: "easeInOut"
-            }} className="absolute top-1/2 -right-6 px-3 py-2 glass rounded-xl shadow-card hidden md:block z-30">
+            }} className="absolute top-1/2 -right-6 px-3 py-2 glass rounded-xl shadow-card hidden md:block">
                 <span className="text-xs font-mono text-muted-foreground">2024-2027</span>
               </motion.div>
             </div>

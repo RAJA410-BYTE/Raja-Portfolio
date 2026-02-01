@@ -101,8 +101,32 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-glow" />
       </div>
 
+      {/* Spline 3D Animation Background */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.4 }}
+        transition={{ duration: 1.5, delay: 0.5 }}
+        className="absolute inset-0 z-0 pointer-events-none"
+      >
+        <iframe 
+          src="https://my.spline.design/orb-ULtxETeQLDiV5Kl9Su5DD3Qb/"
+          frameBorder="0"
+          className="w-full h-full scale-125 lg:scale-150"
+          style={{ 
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            minWidth: '100vw',
+            minHeight: '100vh',
+          }}
+          loading="lazy"
+          title="3D Orb Animation"
+        />
+      </motion.div>
+
       {/* Animated mesh gradient */}
-      <div className="absolute inset-0 opacity-30">
+      <div className="absolute inset-0 opacity-30 pointer-events-none">
         <motion.div animate={{
         background: ["radial-gradient(circle at 20% 50%, hsl(var(--primary) / 0.3) 0%, transparent 50%)", "radial-gradient(circle at 80% 50%, hsl(var(--primary) / 0.3) 0%, transparent 50%)", "radial-gradient(circle at 50% 80%, hsl(var(--primary) / 0.3) 0%, transparent 50%)", "radial-gradient(circle at 20% 50%, hsl(var(--primary) / 0.3) 0%, transparent 50%)"]
       }} transition={{
@@ -113,7 +137,7 @@ const HeroSection = () => {
       </div>
 
       {/* Animated grid pattern */}
-      <div className="absolute inset-0 opacity-[0.07]">
+      <div className="absolute inset-0 opacity-[0.07] pointer-events-none">
         <div className="absolute inset-0" style={{
         backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
                            linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
